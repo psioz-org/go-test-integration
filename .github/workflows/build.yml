@@ -9,6 +9,8 @@ jobs:
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
+    env:
+      GO111MODULE: on
     steps:
       - uses: actions/checkout@v3
         with:
@@ -19,13 +21,14 @@ jobs:
           go-version: 'stable'
       - run: go version
       - name: Run Test
+        # In windows -coverprofile= not work, must be space so we use space here too as compatible for both os
         run: |
-          go test -v ./... -covermode=count -coverprofile=coverage.out
-      #     go tool cover -func=coverage.out -o=coverage.out
-      # - name: Go Coverage Badge  # Pass the `coverage.out` output to this action
-      #   uses: tj-actions/coverage-badge-go@v2
-      #   with:
-      #     filename: coverage.out
+          go test -v -json ./... -covermode count -coverprofile coverage.out > coverage-report.json
+          go tool cover -func coverage.out -o coverage-sum.out
+      - name: Go Coverage Badge
+        uses: tj-actions/coverage-badge-go@v2
+        with:
+          filename: coverage-sum.out
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
@@ -38,7 +41,14 @@ jobs:
         env:
          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
          #SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} #OPTIONAL
-      # Optionally you can use the output from the Quality Gate in another step.
-      # The possible outputs of the `quality-gate-status` variable are `PASSED`, `WARN` or `FAILED`.
-      - name: "Example show SonarQube Quality Gate Status value"
+      - name: Example show SonarQube Quality Gate Status value  # `quality-gate-status` variable are `PASSED`, `WARN` or `FAILED`.
         run: echo "The Quality Gate status is ${{ steps.sonarqube-quality-gate-check.outputs.quality-gate-status }}"
+      - name: Run Gosec Security Scanner
+        uses: securego/gosec@master
+        with:
+          args: '-no-fail -fmt sarif -out results.sarif ./...'  # we let the report trigger content trigger a failure using the GitHub Security features.
+          #args: '-no-fail -fmt sonarqube -out gosec-report.json ./...' # sonar option
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: results.sarif
