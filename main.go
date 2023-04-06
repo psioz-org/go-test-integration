@@ -16,17 +16,80 @@ func main() {
 	}
 	if a {
 		fmt.Printf("test1")
-	}
-	if a {
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
 		fmt.Printf("test1")
 	}
 	if a {
 		fmt.Printf("test1")
-	}
-	if a {
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
 		fmt.Printf("test1")
 	}
 	if a {
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+	}
+	if a {
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+	}
+	if a {
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+	}
+	if a {
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
+		fmt.Printf("test1")
 		fmt.Printf("test1")
 	}
 }
