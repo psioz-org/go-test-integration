@@ -6,6 +6,12 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
+  misc:
+    name: MiscActions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Go report card update
+        uses: creekorful/goreportcard-action@v1.0
   sonarcloud-chk:
     name: SonarCloudChk
     runs-on: ubuntu-latest
