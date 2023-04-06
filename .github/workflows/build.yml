@@ -1,10 +1,10 @@
 name: Build
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
   pull_request:
-    types: [opened, synchronize, reopened]
+    branches: [ "main" ]
+    # types: [opened, synchronize, reopened] # If used and set require, merge will stuck with required but not executed when merge PR from bot e.g. release-please because it's not this 3 types. "required" can only be set as branch scope.
 jobs:
   misc:
     name: MiscActions
