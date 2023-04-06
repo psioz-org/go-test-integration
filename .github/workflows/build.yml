@@ -45,6 +45,8 @@ jobs:
   gosec-chk:
     name: GosecChk
     runs-on: ubuntu-latest
+    permissions:
+      security-events: write # required for upload-sarif@v2
     env:
       GO111MODULE: on
     steps:
