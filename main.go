@@ -2,16 +2,10 @@ package main
 
 import "fmt"
 
-var a = true
-
 func main() {
-	if a {
-		fmt.Printf("test1")
-	}
-	if a {
-		fmt.Printf("test1")
-	}
-	if a {
-		fmt.Printf("test1")
-	}
+	fmt.Printf("result: %v", sum(3, 4))
+}
+
+func sum(a int, b int) int {
+	return a + b
 }
