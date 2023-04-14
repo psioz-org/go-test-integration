@@ -27,14 +27,16 @@
 5. Re-run failed jobs. Wait until completely success
 6. Settings > Branches > Add branches rule on main branch as needed:  
     Require status checks:
+    - Analyze ({language})[GitHub Actions] *If you enable CodeQL
     - SonarCloudChk[GitHub Actions]
     - GosecChk[GitHub Actions]
-    - SonarCloud[SonarCloud] *SonarCloud[SonarCloud], gosec[Github Code Scanning] will visible only if start PR
+    - <sup>[2]</sup> SonarCloud[SonarCloud] *SonarCloud[SonarCloud], gosec[Github Code Scanning] will visible only if start PR
     - gosec[GitHub Code Scanning]
-    - SonarCloud Code Analysis[GitHub Code Scanning]
+    - <sup>[2]</sup> SonarCloud Code Analysis[GitHub Code Scanning]
 7. Merge
 
 
-<sup>[1]</sup> Can be set only once at organization level
+<sup>[1]</sup> Can be set only once at organization level  
+<sup>[2]</sup> Can omit because it sometimes "Waiting for status to be reported"
 
 Note: GitHub "required workflow" for organization still has many restriction so we still use workflow file in each repository.
